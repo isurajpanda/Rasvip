@@ -1,54 +1,30 @@
-# RSVP Reader
+# Rasvip | Browser-based RSVP Reader
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blueviolet)](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+**A static web application for customizable rapid serial visual presentation (RSVP).**
 
-**Unlock your reading potential. A fast, beautiful, and highly customizable RSVP speed-reading web application designed for focus, efficiency, and accessibility.**
-
-Experience fast, private, and powerful speed reading—right in your browser. Just open and start reading instantly.
+Load local text, PDF, EPUB or DOCX documents and read at an adjustable pace. Reading files are processed in the browser; external library assets may be loaded from CDNs.
 
 <p float="left">
-  <img src=".asserts/1.jpeg" height="300">
-  <img src=".asserts/2.jpeg" height="300">
+  <img src=".asserts/1.jpeg" height="300" alt="Reader interface">
+  <img src=".asserts/2.jpeg" height="300" alt="Reader settings">
 </p>
 
-## Why Choose This Reader?
+## Quickstart
 
-In a world of constant information, the ability to read efficiently is a superpower. Modern RSVP Reader is engineered to give you that power, whether you're a student, a professional, or simply a lifelong learner.
+Open `index.html` or serve the repository locally with `python -m http.server 8000`, then visit `http://localhost:8000`. An internet connection may be required for CDN libraries.
 
-*   **Entirely Client-Side:** Your files are processed directly in your browser. Nothing is ever uploaded, ensuring your privacy is always protected.
-*   **Broad File Support:** Effortlessly load and read `.txt`, `.pdf`, `.epub`, and `.docx` files.
-*   **Highly Customizable:** Tailor your reading experience with adjustable WPM, text size, multiple fonts, and a variety of beautiful themes.
-*   **Accessible by Design:** Features like Bionic Reading and RSVP are integrated to assist readers of all abilities, including those with dyslexia, ADHD, and other learning disabilities.
-*   **Elegant & Modern UI:** A clean, intuitive, and responsive interface that gets out of your way and lets you focus on what matters: the text.
+## Architecture
 
----
+```mermaid
+flowchart LR
+  A[Local document] --> B[Browser parser]
+  B --> C[Word stream]
+  C --> D[RSVP playback]
+  C --> E[Context view]
+  F[Reader settings] --> D
+```
 
-## The Science of Speed Reading
-
-This application leverages two scientifically-backed reading methodologies to enhance focus and speed.
-
-### Rapid Serial Visual Presentation (RSVP)
-
-RSVP is a technique that presents words one at a time at a fixed focal point. This method can dramatically increase reading speed by eliminating subvocalization (the silent speech in your head) and saccadic eye movement (the micro-jumps your eyes make when reading).
-
-**Benefits of RSVP:**
-*   **Increased Speed:** By reducing unnecessary eye movement, you can process text at a much faster rate.
-*   **Improved Focus:** Presenting one word at a time minimizes distractions and keeps your attention locked on the content.
-*   **Reduced Mental Strain:** RSVP can help readers, especially those with dyslexia, by presenting information in manageable chunks, which may aid comprehension.
-
-### Bionic Reading
-
-Bionic Reading is a newer methodology that guides the eyes through text by bolding the initial letters of each word. This creates "artificial fixation points" that allow your brain to recognize words faster and fill in the rest, reducing cognitive load and improving reading flow.
-
-**Benefits of Bionic Reading:**
-*   **Enhanced Flow & Comprehension:** Many users report a smoother, less strenuous reading experience, which can lead to better understanding.
-*   **A Powerful Tool for Neurodiversity:** Individuals with **ADHD** often find that Bionic Reading helps maintain focus and engagement with the text. For those with **dyslexia**, it can help the eyes move from one bolded section to the next, preventing getting "stuck" on individual words.
-
-While the scientific community is still exploring the full extent of these benefits, anecdotal evidence and preliminary studies suggest that these methods can be game-changers for many readers.
-
----
+RSVP and bionic formatting are optional presentation modes; improved comprehension or clinical benefits are not established by this project.
 
 ## Features
 
